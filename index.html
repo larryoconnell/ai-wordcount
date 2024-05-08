@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Essay Word Count</title>
+  <style>
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 200px;
+      margin-bottom: 10px;
+    }
+
+    .loading-bar {
+      width: 100%;
+      height: 20px;
+      background-color: #f0f0f0;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .loading-bar-progress {
+      width: 0;
+      height: 100%;
+      background-color: #4CAF50;
+      transition: width 2s;
+    }
+
+    .word-count {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Essay Word Count</h1>
+    <textarea id="essay" placeholder="Enter your essay here..."></textarea>
+    <button onclick="calculateWordCount()">Calculate Word Count</button>
+    <div class="loading-bar" id="loadingBar" style="display: none;">
+      <div class="loading-bar-progress"></div>
+    </div>
+    <p class="word-count" id="wordCount"></p>
+  </div>
+
+  <script>
+    function calculateWordCount() {
+      var essay = document.getElementById("essay").value;
+      var loadingBar = document.getElementById("loadingBar");
+      var wordCountElement = document.getElementById("wordCount");
+
+      loadingBar.style.display = "block";
+      wordCountElement.innerHTML = "";
+
+      setTimeout(function() {
+        var wordCount = essay.trim().split(/\s+/).length;
+        loadingBar.style.display = "none";
+        wordCountElement.innerHTML = "Word Count: " + wordCount;
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
