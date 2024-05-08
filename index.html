@@ -26,6 +26,16 @@
       margin-bottom: 30px;
     }
 
+    .instructions {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
+
+    .instructions ol {
+      padding-left: 20px;
+    }
+
     textarea {
       width: 100%;
       height: 200px;
@@ -79,7 +89,7 @@
       margin-bottom: 20px;
     }
 
-    .blurb {
+    .explanation {
       font-size: 18px;
       text-align: center;
       color: #666;
@@ -90,13 +100,23 @@
 <body>
   <div class="container">
     <h1>AI-Powered Essay Word Count</h1>
-    <textarea id="essay" placeholder="Enter your essay here..."></textarea>
+    <div class="instructions">
+      <h2>Instructions:</h2>
+      <ol>
+        <li>Open your essay in a text editor or word processor.</li>
+        <li>Select the entire essay, including the references.</li>
+        <li>Copy the selected text to your clipboard (Ctrl+C or Cmd+C).</li>
+        <li>Click inside the text box below and paste the copied text (Ctrl+V or Cmd+V).</li>
+        <li>Click the "Calculate Word Count" button to initiate the AI-powered word count analysis.</li>
+      </ol>
+    </div>
+    <textarea id="essay" placeholder="Paste your essay here, including references..."></textarea>
     <button class="button" onclick="calculateWordCount()">Calculate Word Count</button>
     <div class="loading-bar" id="loadingBar" style="display: none;">
       <div class="loading-bar-progress"></div>
     </div>
     <p class="word-count" id="wordCount"></p>
-    <p class="blurb">Our advanced AI system analyzes your essay using cutting-edge natural language processing algorithms to provide an accurate word count.</p>
+    <p class="explanation">Our advanced AI system uses sophisticated natural language processing techniques to parse your essay into individual word tokens. It applies complex algorithms and algebraic operations to accurately calculate the precise number of word tokens, taking into account current citation conventions. Rest assured, your essay is in good hands with our state-of-the-art technology!</p>
   </div>
 
   <script>
